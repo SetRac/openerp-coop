@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    coop
+#    Copyright (C) 2014 No author.
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- coop.mocion -->
+<!-- coop.mocion -->
+<!-- coop.mocion -->
+<openerp>
+    <data>
+        <!-- Workflow -->
+
+        <record id="mocion_untitle_wkf" model="workflow">
+            <field name="name">coop.mocion.untitle</field>
+            <field name="osv">coop.mocion</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <!-- Activities -->
+
+        <record id="a_1FEC_2008" model="workflow.activity">
+            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="flow_start">True</field>
+            <field name="name">draft</field>
+            <field name="action">
+                write({'state':'draft'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1FEC_200A" model="workflow.activity">
+            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="name">waiting_for_referendum</field>
+            <field name="action">
+                write({'state':'waiting_for_referendum'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1FEC_200C" model="workflow.activity">
+            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="name">in_referendum</field>
+            <field name="action">
+                write({'state':'in_referendum'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1FEC_200E" model="workflow.activity">
+            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="flow_stop">True</field>
+            <field name="name">canceled</field>
+            <field name="action">
+                write({'state':'canceled'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1FEC_2010" model="workflow.activity">
+            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="flow_stop">True</field>
+            <field name="name">accepted</field>
+            <field name="action">
+                write({'state':'accepted'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1FEC_2011" model="workflow.activity">
+            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="flow_stop">True</field>
+            <field name="name">rejected</field>
+            <field name="action">
+                write({'state':'rejected'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+
+        <!-- Transitions -->
+
+        <record id="t_1FEC_200B" model="workflow.transition">
+            <field name="act_from" ref="a_1FEC_2008"/>
+            <field name="act_to" ref="a_1FEC_200A"/>
+            <field name="signal">sgn_accepted</field>
+            <field name="condition">True and es_presidente</field>
+        </record>
+        <record id="t_1FEC_200D" model="workflow.transition">
+            <field name="act_from" ref="a_1FEC_200A"/>
+            <field name="act_to" ref="a_1FEC_200C"/>
+            <field name="signal">sgn_publish</field>
+            <field name="condition">True and es_secretario</field>
+        </record>
+        <record id="t_1FEC_200F" model="workflow.transition">
+            <field name="act_from" ref="a_1FEC_2008"/>
+            <field name="act_to" ref="a_1FEC_200E"/>
+            <field name="signal">sgn_cancel</field>
+            <field name="condition">True and es_dueno</field>
+        </record>
+        <record id="t_1FEC_2012" model="workflow.transition">
+            <field name="act_from" ref="a_1FEC_200C"/>
+            <field name="act_to" ref="a_1FEC_2010"/>
+            <field name="signal">sgn_votar</field>
+            <field name="condition">True and todos_votaron</field>
+        </record>
+        <record id="t_1FEC_2013" model="workflow.transition">
+            <field name="act_from" ref="a_1FEC_200C"/>
+            <field name="act_to" ref="a_1FEC_2011"/>
+            <field name="signal">sgn_votar</field>
+            <field name="condition">True and todos_votaron</field>
+        </record>
+        <record id="t_1FEC_2017" model="workflow.transition">
+            <field name="act_from" ref="a_1FEC_200E"/>
+            <field name="act_to" ref="a_1FEC_2008"/>
+            <field name="signal">sgn_open</field>
+            <field name="condition">True and es_dueno</field>
+        </record>
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

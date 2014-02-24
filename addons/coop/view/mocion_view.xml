@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    coop
+#    Copyright (C) 2014 No author.
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<openerp>
+    <data>
+
+        <!-- SEARCH VIEW -->
+        <record id="view_coop_mocion_filter" model="ir.ui.view">
+            <field name="name">coop.mocion.select</field>
+            <field name="model">coop.mocion</field>
+            <field name="arch" type="xml">
+                <search string="mocion" version="7.0">
+                    <group string="By Attribute">
+                    </group>
+                    <group string="By object">
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- FORMVIEW -->
+        <record id="view_coop_mocion_form" model="ir.ui.view">
+            <field name="name">coop.mocion.form</field>
+            <field name="model">coop.mocion</field>
+            <field name="arch" type="xml">
+                <form string="mocion" version="7.0">
+                    <header>
+                        <button name="sgn_accepted"
+                            states="draft"
+                            string="accepted"
+                            />
+                        <button name="sgn_cancel"
+                            states="draft"
+                            string="cancel"
+                            />
+                        <button name="action_wfk_set_draft"
+                            type="object"
+                            states="canceled"
+                            string="open"
+                            />
+                        <button name="sgn_publish"
+                            states="waiting_for_referendum"
+                            string="publish"
+                            />
+                        <button name="sgn_votar"
+                            states="in_referendum"
+                            string="votar"
+                            />
+                        <field name="state" widget="statusbar"
+                            statusbar_colors='{}'
+                            />
+                    </header>
+                    <sheet string="mocion">
+                     <group>
+                     </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+
+        <record id="view_coop_mocion_tree" model="ir.ui.view">
+            <field name="name">coop.mocion.tree</field>
+            <field name="model">coop.mocion</field>
+            <field name="arch" type="xml">
+                <tree string="mocion"
+                    colors="grey:state=='cancelled';blue:state in ('draft',);black:state in ('waiting_for_referendum', 'in_referendum'); red:state in ()"
+                    >
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

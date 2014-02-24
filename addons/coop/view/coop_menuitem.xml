@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    coop
+#    Copyright (C) 2014 No author.
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+-->
+<openerp>
+    <data>
+
+        <menuitem
+            name="Cooperativa"
+            id="menu_cooperativa"
+            sequence="100"
+            />
+
+
+        <menuitem
+            name="Asambleas"
+            id="menu_asambleas"
+            sequence="100"
+            parent="menu_cooperativa"
+            />
+
+
+        <menuitem
+            name="Libros"
+            id="menu_libros"
+            sequence="100"
+            parent="menu_cooperativa"
+            />
+
+
+        <menuitem
+            name="Consejo Administraci&amp;#243;n"
+            id="menu_untitle"
+            sequence="100"
+            parent="menu_cooperativa"
+            />
+
+
+        <menuitem
+            name="Actas de Asambleas"
+            id="menu_actas_de_asambleas"
+            sequence="100"
+            parent="menu_libros"
+            />
+
+
+        <menuitem
+            name="Asambleas"
+            id="menu_asambleas"
+            sequence="100"
+            parent="menu_asambleas"
+            />
+
+
+        <menuitem
+            name="Asistencia a Asambleas"
+            id="menu_asistencia_a_asambleas"
+            sequence="100"
+            parent="menu_libros"
+            />
+
+
+        <menuitem
+            name="Discusiones"
+            id="menu_discusiones"
+            sequence="100"
+            parent="menu_untitle"
+            />
+
+
+        <menuitem
+            name="Informe de Sindicatura"
+            id="menu_informe_de_sindicatura"
+            sequence="100"
+            parent="menu_libros"
+            />
+
+        <record id="action_coop_mocion_mociones" model="ir.actions.act_window">
+            <field name="name">Mociones</field>
+            <field name="res_model">coop.mocion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_coop_mocion_tree"/>
+            <field name="search_view_id" ref="view_coop_mocion_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Mociones"
+            id="menu_mociones"
+            sequence="100"
+            action="action_coop_mocion_mociones"
+            parent="menu_untitle"
+            />
+
+
+        <menuitem
+            name="Notas al INAES"
+            id="menu_notas_al_inaes"
+            sequence="100"
+            parent="menu_untitle"
+            />
+
+
+        <menuitem
+            name="Registro de Asociados"
+            id="menu_registro_de_asociados"
+            sequence="100"
+            parent="menu_libros"
+            />
+
+
+        <menuitem
+            name="Reuniones"
+            id="menu_reuniones"
+            sequence="100"
+            parent="menu_untitle"
+            />
+
+
+        <menuitem
+            name="Actas de Reuniones del Consejo de Administraci&amp;#243;n"
+            id="menu_untitle"
+            sequence="100"
+            parent="menu_libros"
+            />
+
+
+        <menuitem
+            name="Informe de Auditor&amp;#237;a"
+            id="menu_untitle"
+            sequence="100"
+            parent="menu_libros"
+            />
+
+
+        <menuitem
+            name="Accounting"
+            id="menu_accounting"
+            sequence="100"
+            />
+
+
+        <menuitem
+            name="Asociados"
+            id="menu_asociados"
+            sequence="100"
+            parent="menu_accounting"
+            />
+
+
+        <menuitem
+            name="Ajuste"
+            id="menu_ajuste"
+            sequence="100"
+            parent="menu_asociados"
+            />
+
+
+        <menuitem
+            name="Asociados"
+            id="menu_asociados"
+            sequence="100"
+            parent="menu_asociados"
+            />
+
+
+        <menuitem
+            name="Pago"
+            id="menu_pago"
+            sequence="100"
+            parent="menu_asociados"
+            />
+
+
+        <menuitem
+            name="Retiro"
+            id="menu_retiro"
+            sequence="100"
+            parent="menu_asociados"
+            />
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->
