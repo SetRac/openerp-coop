@@ -21,23 +21,23 @@
 #
 ##############################################################################
 -->
-<!-- coop.mocion -->
-<!-- coop.mocion -->
-<!-- coop.mocion -->
+<!-- coop.proposal -->
+<!-- coop.proposal -->
+<!-- coop.proposal -->
 <openerp>
     <data>
         <!-- Workflow -->
 
-        <record id="mocion_untitle_wkf" model="workflow">
-            <field name="name">coop.mocion.untitle</field>
-            <field name="osv">coop.mocion</field>
+        <record id="proposal_untitle_wkf" model="workflow">
+            <field name="name">coop.proposal.untitle</field>
+            <field name="osv">coop.proposal</field>
             <field name="on_create">True</field>
         </record>
 
         <!-- Activities -->
 
         <record id="a_1FEC_2008" model="workflow.activity">
-            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="wkf_id" ref="proposal_untitle_wkf"/>
             <field name="flow_start">True</field>
             <field name="name">draft</field>
             <field name="action">
@@ -46,7 +46,7 @@
             <field name="kind">function</field>
         </record>
         <record id="a_1FEC_200A" model="workflow.activity">
-            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="wkf_id" ref="proposal_untitle_wkf"/>
             <field name="name">waiting_for_referendum</field>
             <field name="action">
                 write({'state':'waiting_for_referendum'})
@@ -54,7 +54,7 @@
             <field name="kind">function</field>
         </record>
         <record id="a_1FEC_200C" model="workflow.activity">
-            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="wkf_id" ref="proposal_untitle_wkf"/>
             <field name="name">in_referendum</field>
             <field name="action">
                 write({'state':'in_referendum'})
@@ -62,7 +62,7 @@
             <field name="kind">function</field>
         </record>
         <record id="a_1FEC_200E" model="workflow.activity">
-            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="wkf_id" ref="proposal_untitle_wkf"/>
             <field name="flow_stop">True</field>
             <field name="name">canceled</field>
             <field name="action">
@@ -71,7 +71,7 @@
             <field name="kind">function</field>
         </record>
         <record id="a_1FEC_2010" model="workflow.activity">
-            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="wkf_id" ref="proposal_untitle_wkf"/>
             <field name="flow_stop">True</field>
             <field name="name">accepted</field>
             <field name="action">
@@ -80,7 +80,7 @@
             <field name="kind">function</field>
         </record>
         <record id="a_1FEC_2011" model="workflow.activity">
-            <field name="wkf_id" ref="mocion_untitle_wkf"/>
+            <field name="wkf_id" ref="proposal_untitle_wkf"/>
             <field name="flow_stop">True</field>
             <field name="name">rejected</field>
             <field name="action">

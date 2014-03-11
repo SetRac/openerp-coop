@@ -21,36 +21,19 @@
 ##############################################################################
 
 
-import re
-from openerp import netsvc
-from openerp.osv import osv, fields
-
-class asociado(osv.osv):
-    """"""
-    
-    _name = 'res.partner'
-    _inherits = {  }
-    _inherit = [ 'res.partner' ]
-
-
-
-    _columns = {
-        'matricula': fields.integer(string='matricula'),
-        'mocion_ids': fields.one2many('coop.mocion', 'asociado_id', string='mocion_ids'), 
-        'discusion_id': fields.one2many('coop.orden', 'asociado_id', string='discusion_id'), 
-        'asamblea_ids': fields.many2many('coop.asamblea', 'coop_asociado_ids_asamblea_ids_rel', 'partner_id', 'asamblea_id', string='asamblea_ids'), 
-    }
-
-    _defaults = {
-    }
-
-
-    _constraints = [
-    ]
-
-
-
-
-asociado()
+{   'active': False,
+    'author': 'No author.',
+    'category': 'base.module_category_hidden',
+    'demo_xml': [],
+    'depends': ['coop'],
+    'description': 'No documented',
+    'init_xml': [],
+    'installable': True,
+    'license': 'AGPL-3',
+    'name': 'Extension del modulo basico para Cooperativas',
+    'test': [],
+    'update_xml': [],
+    'version': '0.1',
+    'website': ''}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -20,40 +20,4 @@
 #
 ##############################################################################
 
-
-import re
-from openerp import netsvc
-from openerp.osv import osv, fields
-
-class asamblea(osv.osv):
-    """"""
-    
-    _name = 'coop.asamblea'
-    _description = 'asamblea'
-
-
-
-    _columns = {
-        'name': 
-        'number': fields.integer(string='number'),
-        'apertura': fields.datetime(string='apertura'),
-        'cierre': fields.datetime(string='cierre'),
-        'reunion_ids': fields.one2many('coop.reunion_consejo_administracion', 'acta_asamblea_id', string='reunion_ids'), 
-        'sequence_id': fields.many2one('ir.sequence', string='sequence_id', required=True), 
-        'discusion_ids': fields.one2many('coop.orden', 'asamblea_id', string='discusion_ids'), 
-        'asociado_ids': fields.many2many('res.partner', 'coop_asociado_ids_asamblea_ids_rel', 'asamblea_id', 'asociado_id', string='asociado_ids'), 
-    }
-
-    _defaults = {
-    }
-
-
-    _constraints = [
-    ]
-
-
-
-
-asamblea()
-
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -25,11 +25,11 @@
     <data>
 
         <!-- SEARCH VIEW -->
-        <record id="view_coop_orden_filter" model="ir.ui.view">
-            <field name="name">coop.orden.select</field>
-            <field name="model">coop.orden</field>
+        <record id="view_coop_meeting_filter" model="ir.ui.view">
+            <field name="name">coop.meeting.select</field>
+            <field name="model">coop.meeting</field>
             <field name="arch" type="xml">
-                <search string="orden" version="7.0">
+                <search string="meeting" version="7.0">
                     <group string="By Attribute">
                     </group>
                     <group string="By object">
@@ -39,15 +39,29 @@
         </record>
 
         <!-- FORMVIEW -->
-        <record id="view_coop_orden_form" model="ir.ui.view">
-            <field name="name">coop.orden.form</field>
-            <field name="model">coop.orden</field>
+        <record id="view_coop_meeting_form" model="ir.ui.view">
+            <field name="name">coop.meeting.form</field>
+            <field name="model">coop.meeting</field>
             <field name="arch" type="xml">
-                <form string="orden" version="7.0">
+                <form string="meeting" version="7.0">
                     <header>
                     </header>
-                    <sheet string="orden">
+                    <sheet string="meeting">
                      <group>
+                        <field name="name"
+                            />
+                        <field name="number"
+                            />
+                        <field name="begin"
+                            />
+                        <field name="end"
+                            />
+                    <field name="topic_ids"
+                            />
+                    <field name="associate_ids"
+                            />
+                    <field name="book_id"
+                            />
                      </group>
                     </sheet>
 
@@ -57,12 +71,16 @@
 
         <!-- TREEVIEW -->
 
-        <record id="view_coop_orden_tree" model="ir.ui.view">
-            <field name="name">coop.orden.tree</field>
-            <field name="model">coop.orden</field>
+        <record id="view_coop_meeting_tree" model="ir.ui.view">
+            <field name="name">coop.meeting.tree</field>
+            <field name="model">coop.meeting</field>
             <field name="arch" type="xml">
-                <tree string="orden"
+                <tree string="meeting"
                     >
+                    <field name="name"
+                        />
+                    <field name="book_id"
+                        />
                 </tree>
             </field>
         </record>

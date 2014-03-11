@@ -33,23 +33,7 @@
 
 
         <menuitem
-            name="Asambleas"
-            id="menu_asambleas"
-            sequence="100"
-            parent="menu_cooperativa"
-            />
-
-
-        <menuitem
-            name="Libros"
-            id="menu_libros"
-            sequence="100"
-            parent="menu_cooperativa"
-            />
-
-
-        <menuitem
-            name="Consejo Administraci&amp;#243;n"
+            name="Configuraci&amp;#243;n"
             id="menu_untitle"
             sequence="100"
             parent="menu_cooperativa"
@@ -57,10 +41,10 @@
 
 
         <menuitem
-            name="Actas de Asambleas"
-            id="menu_actas_de_asambleas"
+            name="Administraci&amp;#243;n"
+            id="menu_untitle"
             sequence="100"
-            parent="menu_libros"
+            parent="menu_cooperativa"
             />
 
 
@@ -68,15 +52,7 @@
             name="Asambleas"
             id="menu_asambleas"
             sequence="100"
-            parent="menu_asambleas"
-            />
-
-
-        <menuitem
-            name="Asistencia a Asambleas"
-            id="menu_asistencia_a_asambleas"
-            sequence="100"
-            parent="menu_libros"
+            parent="menu_untitle"
             />
 
 
@@ -87,21 +63,31 @@
             parent="menu_untitle"
             />
 
-
-        <menuitem
-            name="Informe de Sindicatura"
-            id="menu_informe_de_sindicatura"
-            sequence="100"
-            parent="menu_libros"
-            />
-
-        <record id="action_coop_mocion_mociones" model="ir.actions.act_window">
-            <field name="name">Mociones</field>
-            <field name="res_model">coop.mocion</field>
+        <record id="action_coop_book_libros" model="ir.actions.act_window">
+            <field name="name">Libros</field>
+            <field name="res_model">coop.book</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_coop_mocion_tree"/>
-            <field name="search_view_id" ref="view_coop_mocion_filter"/>
+            <field name="view_id" ref="view_coop_book_tree"/>
+            <field name="search_view_id" ref="view_coop_book_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Libros"
+            id="menu_libros"
+            sequence="100"
+            action="action_coop_book_libros"
+            parent="menu_untitle"
+            />
+
+        <record id="action_coop_proposal_mociones" model="ir.actions.act_window">
+            <field name="name">Mociones</field>
+            <field name="res_model">coop.proposal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_coop_proposal_tree"/>
+            <field name="search_view_id" ref="view_coop_proposal_filter"/>
             <field name="domain">[]</field>
         </record>
 
@@ -109,7 +95,7 @@
             name="Mociones"
             id="menu_mociones"
             sequence="100"
-            action="action_coop_mocion_mociones"
+            action="action_coop_proposal_mociones"
             parent="menu_untitle"
             />
 
@@ -121,36 +107,38 @@
             parent="menu_untitle"
             />
 
-
-        <menuitem
-            name="Registro de Asociados"
-            id="menu_registro_de_asociados"
-            sequence="100"
-            parent="menu_libros"
-            />
-
+        <record id="action_coop_meeting_reuniones" model="ir.actions.act_window">
+            <field name="name">Reuniones</field>
+            <field name="res_model">coop.meeting</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_coop_meeting_tree"/>
+            <field name="search_view_id" ref="view_coop_meeting_filter"/>
+            <field name="domain">[]</field>
+        </record>
 
         <menuitem
             name="Reuniones"
             id="menu_reuniones"
             sequence="100"
+            action="action_coop_meeting_reuniones"
             parent="menu_untitle"
             />
 
 
         <menuitem
-            name="Actas de Reuniones del Consejo de Administraci&amp;#243;n"
-            id="menu_untitle"
+            name="Notas de Respuestas"
+            id="menu_notas_de_respuestas"
             sequence="100"
-            parent="menu_libros"
+            parent="menu_notas_al_inaes"
             />
 
 
         <menuitem
-            name="Informe de Auditor&amp;#237;a"
-            id="menu_untitle"
+            name="Notas del INAES"
+            id="menu_notas_del_inaes"
             sequence="100"
-            parent="menu_libros"
+            parent="menu_notas_al_inaes"
             />
 
 
@@ -176,11 +164,21 @@
             parent="menu_asociados"
             />
 
+        <record id="action_coop_associate_lista_de_asociados" model="ir.actions.act_window">
+            <field name="name">Lista de Asociados</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_coop_associate_tree"/>
+            <field name="search_view_id" ref="view_coop_associate_filter"/>
+            <field name="domain">[]</field>
+        </record>
 
         <menuitem
-            name="Asociados"
-            id="menu_asociados"
+            name="Lista de Asociados"
+            id="menu_lista_de_asociados"
             sequence="100"
+            action="action_coop_associate_lista_de_asociados"
             parent="menu_asociados"
             />
 

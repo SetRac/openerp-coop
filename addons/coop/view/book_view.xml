@@ -25,11 +25,11 @@
     <data>
 
         <!-- SEARCH VIEW -->
-        <record id="view_coop_reunion_consejo_administracion_filter" model="ir.ui.view">
-            <field name="name">coop.reunion_consejo_administracion.select</field>
-            <field name="model">coop.reunion_consejo_administracion</field>
+        <record id="view_coop_book_filter" model="ir.ui.view">
+            <field name="name">coop.book.select</field>
+            <field name="model">coop.book</field>
             <field name="arch" type="xml">
-                <search string="reunion_consejo_administracion" version="7.0">
+                <search string="book" version="7.0">
                     <group string="By Attribute">
                     </group>
                     <group string="By object">
@@ -39,15 +39,19 @@
         </record>
 
         <!-- FORMVIEW -->
-        <record id="view_coop_reunion_consejo_administracion_form" model="ir.ui.view">
-            <field name="name">coop.reunion_consejo_administracion.form</field>
-            <field name="model">coop.reunion_consejo_administracion</field>
+        <record id="view_coop_book_form" model="ir.ui.view">
+            <field name="name">coop.book.form</field>
+            <field name="model">coop.book</field>
             <field name="arch" type="xml">
-                <form string="reunion_consejo_administracion" version="7.0">
+                <form string="book" version="7.0">
                     <header>
                     </header>
-                    <sheet string="reunion_consejo_administracion">
+                    <sheet string="book">
                      <group>
+                        <field name="name"
+                            />
+                    <field name="sequence_id"
+                            />
                      </group>
                     </sheet>
 
@@ -57,12 +61,14 @@
 
         <!-- TREEVIEW -->
 
-        <record id="view_coop_reunion_consejo_administracion_tree" model="ir.ui.view">
-            <field name="name">coop.reunion_consejo_administracion.tree</field>
-            <field name="model">coop.reunion_consejo_administracion</field>
+        <record id="view_coop_book_tree" model="ir.ui.view">
+            <field name="name">coop.book.tree</field>
+            <field name="model">coop.book</field>
             <field name="arch" type="xml">
-                <tree string="reunion_consejo_administracion"
+                <tree string="book"
                     >
+                    <field name="name"
+                        />
                 </tree>
             </field>
         </record>

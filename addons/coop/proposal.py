@@ -25,11 +25,11 @@ import re
 from openerp import netsvc
 from openerp.osv import osv, fields
 
-class mocion(osv.osv):
+class proposal(osv.osv):
     """"""
     
-    _name = 'coop.mocion'
-    _description = 'mocion'
+    _name = 'coop.proposal'
+    _description = 'proposal'
 
     _states_ = [
         # State machine: untitle
@@ -43,19 +43,20 @@ class mocion(osv.osv):
 
 
     _columns = {
-        'name': 
-        'propuesta': 
+        'name': fields.char(string='name'),
+        'description': fields.text(string='description'),
         'presented': fields.datetime(string='presented'),
-        'votos_pos': fields.integer(string='votos_pos'),
-        'votos_neg': fields.integer(string='votos_neg'),
-        'votos_neu': fields.integer(string='votos_neu'),
+        'affirmative_votes': fields.integer(string='affirmative_votes'),
+        'negative_votes': fields.integer(string='negative_votes'),
+        'other_votes': fields.integer(string='other_votes'),
         'state': fields.selection(_states_, "State"),
-        'discusion_id': fields.many2one('coop.orden', string='discusion_id', required=True), 
-        'asociado_id': fields.many2one('res.partner', string='asociado_id', required=True), 
+        'topic_id': fields.many2one('coop.topic', string='topic_id', ondelete='cascade', required=True), 
+        'associate_id': fields.many2one('res.partner', string='associate_id', required=True), 
     }
 
     _defaults = {
         'state': 'draft',
+        'topic_id': lambda self, cr, uid, context=None: context and context.get('topic_id', False),
     }
 
 
@@ -67,12 +68,12 @@ class mocion(osv.osv):
         self.write(cr, uid, ids, {'state':'draft'})
         wf_service = netsvc.LocalService("workflow")
         for obj_id in ids:
-            wf_service.trg_delete(uid, 'coop.mocion', obj_id, cr)
-            wf_service.trg_create(uid, 'coop.mocion', obj_id, cr)
+            wf_service.trg_delete(uid, 'coop.proposal', obj_id, cr)
+            wf_service.trg_create(uid, 'coop.proposal', obj_id, cr)
         return True
 
 
 
-mocion()
+proposal()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

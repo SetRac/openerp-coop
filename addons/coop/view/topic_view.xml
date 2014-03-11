@@ -25,11 +25,11 @@
     <data>
 
         <!-- SEARCH VIEW -->
-        <record id="view_coop_mocion_filter" model="ir.ui.view">
-            <field name="name">coop.mocion.select</field>
-            <field name="model">coop.mocion</field>
+        <record id="view_coop_topic_filter" model="ir.ui.view">
+            <field name="name">coop.topic.select</field>
+            <field name="model">coop.topic</field>
             <field name="arch" type="xml">
-                <search string="mocion" version="7.0">
+                <search string="topic" version="7.0">
                     <group string="By Attribute">
                     </group>
                     <group string="By object">
@@ -39,39 +39,31 @@
         </record>
 
         <!-- FORMVIEW -->
-        <record id="view_coop_mocion_form" model="ir.ui.view">
-            <field name="name">coop.mocion.form</field>
-            <field name="model">coop.mocion</field>
+        <record id="view_coop_topic_form" model="ir.ui.view">
+            <field name="name">coop.topic.form</field>
+            <field name="model">coop.topic</field>
             <field name="arch" type="xml">
-                <form string="mocion" version="7.0">
+                <form string="topic" version="7.0">
                     <header>
-                        <button name="sgn_accepted"
-                            states="draft"
-                            string="accepted"
-                            />
-                        <button name="sgn_cancel"
-                            states="draft"
-                            string="cancel"
-                            />
-                        <button name="action_wfk_set_draft"
-                            type="object"
-                            states="canceled"
-                            string="open"
-                            />
-                        <button name="sgn_publish"
-                            states="waiting_for_referendum"
-                            string="publish"
-                            />
-                        <button name="sgn_votar"
-                            states="in_referendum"
-                            string="votar"
-                            />
-                        <field name="state" widget="statusbar"
-                            statusbar_colors='{}'
-                            />
                     </header>
-                    <sheet string="mocion">
+                    <sheet string="topic">
                      <group>
+                        <field name="name"
+                            />
+                        <field name="description"
+                            />
+                        <field name="sequence"
+                            />
+                        <field name="begin"
+                            />
+                        <field name="end"
+                            />
+                    <field name="mocion_ids"
+                            />
+                    <field name="associate_id"
+                            />
+                    <field name="meeting_id"
+                            />
                      </group>
                     </sheet>
 
@@ -81,14 +73,18 @@
 
         <!-- TREEVIEW -->
 
-        <record id="view_coop_mocion_tree" model="ir.ui.view">
-            <field name="name">coop.mocion.tree</field>
-            <field name="model">coop.mocion</field>
+        <record id="view_coop_topic_tree" model="ir.ui.view">
+            <field name="name">coop.topic.tree</field>
+            <field name="model">coop.topic</field>
             <field name="arch" type="xml">
-                <tree string="mocion"
-                    colors="grey:state=='cancelled';blue:state in ('draft',);black:state in ('waiting_for_referendum', 'in_referendum'); red:state in ()"
+                <tree string="topic"
                     >
-                    <field name="state" />
+                    <field name="name"
+                        />
+                    <field name="sequence"
+                        />
+                    <field name="meeting_id"
+                        />
                 </tree>
             </field>
         </record>

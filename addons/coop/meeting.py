@@ -25,25 +25,22 @@ import re
 from openerp import netsvc
 from openerp.osv import osv, fields
 
-class reunion_consejo_administracion(osv.osv):
+class meeting(osv.osv):
     """"""
     
-    _name = 'coop.reunion_consejo_administracion'
-    _description = 'reunion_consejo_administracion'
+    _name = 'coop.meeting'
+    _description = 'meeting'
 
 
 
     _columns = {
-        'name': 
-        'apertura': fields.datetime(string='apertura'),
-        'cierre': fields.datetime(string='cierre'),
-        'efecto': 
-        'considerar_anterior': fields.boolean(string='considerar_anterior'),
-        'texto': 
-        'number': fields.integer(string='number'),
-        'acta_asamblea_id': fields.many2one('coop.asamblea', string='acta_asamblea_id', required=True), 
-        'sequence_id': fields.many2one('ir.sequence', string='sequence_id', required=True), 
-        'discusion_ids': fields.one2many('coop.orden', 'reunion_id', string='discusion_ids'), 
+        'name': fields.char(string='name'),
+        'number': fields.char(string='number'),
+        'begin': fields.datetime(string='begin'),
+        'end': fields.datetime(string='end'),
+        'topic_ids': fields.one2many('coop.topic', 'meeting_id', string='topic_ids'), 
+        'associate_ids': fields.many2many('res.partner', 'coop_associate_ids_meeting_ids_rel', 'meeting_id', 'associate_id', string='associate_ids'), 
+        'book_id': fields.many2one('coop.book', string='book_id'), 
     }
 
     _defaults = {
@@ -56,6 +53,6 @@ class reunion_consejo_administracion(osv.osv):
 
 
 
-reunion_consejo_administracion()
+meeting()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

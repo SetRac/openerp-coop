@@ -33,3 +33,10 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+# XMI2OERP
+*.db
+*.db.log
+
+# ArgoUML
+*.uml~
