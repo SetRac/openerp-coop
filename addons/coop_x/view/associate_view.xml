@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    coop
+#    Copyright (C) 2014 No author.
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<openerp>
+    <data>
+
+        <!-- INHERITED SEARCH --> <!-- comento por si queremos hacer un cambio en el futuro -->
+        <!--record id="view_coop_associate_filter" model="ir.ui.view">
+            <field name="name">coop.associate.select</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <search position="inside">
+                </search>
+            </field>
+        </record-->
+ 
+        <!-- INHERITED FORM -->
+        <record id="coop.view_coop_associate_form" model="ir.ui.view"> <!-- Hay que indicar que se pisa la vista de coop, sino crea una nueva -->
+            <field name="name">coop.associate.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <group position="inside"> <!-- Ahora si se puede editar -->
+                    <separator string="Cooperative"/>
+                    <field name="associate_id" />
+                    <field name="is_asociate" />
+                </group>
+            </field>
+        </record>
+
+        <!-- INHERITED TREE --> <!-- comento por si queremos hacer un cambio en el futuro -->
+        <!--record id="view_coop_associate_tree" model="ir.ui.view">
+            <field name="name">coop.associate.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <tree position="inside">
+                </tree>
+            </field>
+        </record-->
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->
