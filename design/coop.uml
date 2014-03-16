@@ -82,7 +82,7 @@
 			</model>
 		</userDefined>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sun Mar 16 19:58:33 ART 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sun Mar 16 20:01:06 ART 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -1921,6 +1921,13 @@
                     <UML:TagDefinition href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1-29a13c2b:13cb7762c9e:-8000:0000000000000ED5'/>
                   </UML:TaggedValue.type>
                 </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '127-0-1-1-35e664ab:144ccdb093c:-8000:0000000000000DA9'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>{&apos;type&apos;:&apos;payment&apos;}</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1--66344949:13b09938a14:-8000:00000000000011FF'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
               </UML:ModelElement.taggedValue>
             </UML:UseCase>
             <UML:Association xmi.id = '127-0-1-1-35e664ab:144ccdb093c:-8000:0000000000000D9E'
@@ -1963,6 +1970,13 @@
                     <UML:TagDefinition href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1-29a13c2b:13cb7762c9e:-8000:0000000000000ED5'/>
                   </UML:TaggedValue.type>
                 </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '127-0-1-1-35e664ab:144ccdb093c:-8000:0000000000000DAB'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>{&apos;default_type&apos;: &apos;in_invoice&apos;, &apos;type&apos;: &apos;in_invoice&apos;, &apos;journal_type&apos;: &apos;purchase&apos;}</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1--66344949:13b09938a14:-8000:00000000000011FF'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
               </UML:ModelElement.taggedValue>
             </UML:UseCase>
             <UML:UseCase xmi.id = '127-0-1-1-62698188:14446405aae:-8000:0000000000000D2B'
@@ -1984,6 +1998,13 @@
                   <UML:TaggedValue.dataValue>[(&apos;type&apos;,&apos;=&apos;,&apos;in_refund&apos;),(&apos;partner_id.is_associate&apos;,&apos;=&apos;,True)]</UML:TaggedValue.dataValue>
                   <UML:TaggedValue.type>
                     <UML:TagDefinition href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1-29a13c2b:13cb7762c9e:-8000:0000000000000ED5'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '127-0-1-1-35e664ab:144ccdb093c:-8000:0000000000000DAA'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>{&apos;default_type&apos;: &apos;in_refund&apos;, &apos;type&apos;: &apos;in_refund&apos;, &apos;journal_type&apos;: &apos;purchase_refund&apos;}</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition href = 'http://argouml.org/user-profiles/OpenObjectStadardElements.xmi#127-0-1-1--66344949:13b09938a14:-8000:00000000000011FF'/>
                   </UML:TaggedValue.type>
                 </UML:TaggedValue>
               </UML:ModelElement.taggedValue>
