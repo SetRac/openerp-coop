@@ -26,7 +26,7 @@
       <fontname>Dialog</fontname>
       <fontsize>12</fontsize>
       <defaultstereotypeview>0</defaultstereotypeview>
-      <activediagram>Menues</activediagram>
+      <activediagram>Company</activediagram>
     </settings>
     <searchpath href="PROJECT_DIR" />
     <members>
@@ -82,7 +82,7 @@
 			</model>
 		</userDefined>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri Mar 28 13:02:03 ART 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Tue Aug 26 14:05:01 ART 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -1800,7 +1800,7 @@
                   </UML:StructuralFeature.type>
                 </UML:Attribute>
                 <UML:Attribute xmi.id = '127-0-1-1-35e664ab:144ccdb093c:-8000:0000000000000D89'
-                  name = 'coop_id' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  name = 'coop_code' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
                   changeability = 'changeable' targetScope = 'instance'>
                   <UML:StructuralFeature.multiplicity>
                     <UML:Multiplicity xmi.id = '127-0-1-1-35e664ab:144ccdb093c:-8000:0000000000000D8A'>
@@ -11991,7 +11991,7 @@
         bold="false"
         textsize="12"
         justification="Left"
-      >coop_id : Char</text>
+      >coop_code : Char</text>
     </group>
     <rectangle name="Fig1.5"
       x="328"
