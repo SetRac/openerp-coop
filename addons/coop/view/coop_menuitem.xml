@@ -26,9 +26,17 @@
     <data>
 
         <menuitem
-            name="Cooperativa"
-            id="menu_cooperativa"
+            name="Cooperative"
+            id="menu_cooperative"
             sequence="100"
+            />
+
+
+        <menuitem
+            name="Administration"
+            id="menu_administration"
+            sequence="100"
+            parent="menu_cooperative"
             />
 
 
@@ -36,15 +44,7 @@
             name="Configuraci&amp;#243;n"
             id="menu_untitle"
             sequence="100"
-            parent="menu_cooperativa"
-            />
-
-
-        <menuitem
-            name="Administraci&amp;#243;n"
-            id="menu_untitle"
-            sequence="100"
-            parent="menu_cooperativa"
+            parent="menu_cooperative"
             />
 
 
@@ -52,7 +52,7 @@
             name="Asambleas"
             id="menu_asambleas"
             sequence="100"
-            parent="menu_untitle"
+            parent="menu_administration"
             />
 
 
@@ -60,7 +60,7 @@
             name="Discusiones"
             id="menu_discusiones"
             sequence="100"
-            parent="menu_untitle"
+            parent="menu_administration"
             />
 
         <record id="action_coop_book_libros" model="ir.actions.act_window">
@@ -96,7 +96,7 @@
             id="menu_mociones"
             sequence="100"
             action="action_coop_proposal_mociones"
-            parent="menu_untitle"
+            parent="menu_administration"
             />
 
 
@@ -104,7 +104,7 @@
             name="Notas al INAES"
             id="menu_notas_al_inaes"
             sequence="100"
-            parent="menu_untitle"
+            parent="menu_administration"
             />
 
         <record id="action_coop_meeting_reuniones" model="ir.actions.act_window">
@@ -122,7 +122,7 @@
             id="menu_reuniones"
             sequence="100"
             action="action_coop_meeting_reuniones"
-            parent="menu_untitle"
+            parent="menu_administration"
             />
 
 
@@ -150,52 +150,85 @@
 
 
         <menuitem
-            name="Asociados"
-            id="menu_asociados"
+            name="Associates"
+            id="menu_accounting_associates"
             sequence="100"
             parent="menu_accounting"
             />
 
+        <record id="action_account_invoice_adjustment" model="ir.actions.act_window">
+            <field name="name">Adjustment</field>
+            <field name="res_model">account.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_account_invoice_tree"/>
+            <field name="search_view_id" ref="view_account_invoice_filter"/>
+            <field name="context">{'default_type': 'in_refund', 'type': 'in_refund', 'journal_type': 'purchase_refund'}</field>
+            <field name="domain">[('type','=','in_refund'),('partner_id.is_associate','=',True)]</field>
+        </record>
 
         <menuitem
-            name="Ajuste"
-            id="menu_ajuste"
+            name="Adjustment"
+            id="menu_adjustment"
             sequence="100"
-            parent="menu_asociados"
+            action="action_account_invoice_adjustment"
+            parent="menu_accounting_associates"
             />
 
-        <record id="action_coop_associate_lista_de_asociados" model="ir.actions.act_window">
-            <field name="name">Lista de Asociados</field>
+        <record id="action_coop_associate_associates" model="ir.actions.act_window">
+            <field name="name">Associates</field>
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_coop_associate_tree"/>
             <field name="search_view_id" ref="view_coop_associate_filter"/>
-            <field name="domain">[]</field>
+            <field name="domain">[('is_associate','=',True)]</field>
         </record>
 
         <menuitem
-            name="Lista de Asociados"
-            id="menu_lista_de_asociados"
+            name="Associates"
+            id="menu_associates"
             sequence="100"
-            action="action_coop_associate_lista_de_asociados"
-            parent="menu_asociados"
+            action="action_coop_associate_associates"
+            parent="menu_accounting_associates"
             />
 
+        <record id="action_account_voucher_payment" model="ir.actions.act_window">
+            <field name="name">Payment</field>
+            <field name="res_model">account.voucher</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_account_voucher_tree"/>
+            <field name="search_view_id" ref="view_account_voucher_filter"/>
+            <field name="context">{'type':'payment'}</field>
+            <field name="domain">[('journal_id.type', 'in', ['bank', 'cash']), ('type','=','payment'),('partner_id.is_associate','=',True)]</field>
+        </record>
 
         <menuitem
-            name="Pago"
-            id="menu_pago"
+            name="Payment"
+            id="menu_payment"
             sequence="100"
-            parent="menu_asociados"
+            action="action_account_voucher_payment"
+            parent="menu_accounting_associates"
             />
 
+        <record id="action_account_invoice_withdrawal" model="ir.actions.act_window">
+            <field name="name">Withdrawal</field>
+            <field name="res_model">account.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_account_invoice_tree"/>
+            <field name="search_view_id" ref="view_account_invoice_filter"/>
+            <field name="context">{'default_type': 'in_invoice', 'type': 'in_invoice', 'journal_type': 'purchase'}</field>
+            <field name="domain">[('type','=','in_invoice'),('partner_id.is_associate','=',True)]</field>
+        </record>
 
         <menuitem
-            name="Retiro"
-            id="menu_retiro"
+            name="Withdrawal"
+            id="menu_withdrawal"
             sequence="100"
-            parent="menu_asociados"
+            action="action_account_invoice_withdrawal"
+            parent="menu_accounting_associates"
             />
 
     </data>

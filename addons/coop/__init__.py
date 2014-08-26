@@ -21,11 +21,14 @@
 ##############################################################################
 
 
-import topic
-import proposal
-import book
-import meeting
+import cooperative
 import associate
+import topic
+import book
+import letter
+import partner
+import proposal
+import meeting
 import wizard
 import report
 
